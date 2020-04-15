@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.eba.event.RecursoCriadoEvent;
-import com.example.eba.model.Categoria;
+import com.example.eba.modell.Categoria;
 import com.example.eba.repository.CategoriaRepository;
 
 @RestController

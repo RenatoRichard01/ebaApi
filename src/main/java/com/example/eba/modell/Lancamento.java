@@ -1,4 +1,4 @@
-package com.example.eba.model;
+package com.example.eba.modell;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

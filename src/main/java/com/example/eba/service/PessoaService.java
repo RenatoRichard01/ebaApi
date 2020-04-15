@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.example.eba.model.Pessoa;
+import com.example.eba.modell.Pessoa;
 import com.example.eba.repository.PessoaRepository;
 
 //Essa classe será um compenente spring

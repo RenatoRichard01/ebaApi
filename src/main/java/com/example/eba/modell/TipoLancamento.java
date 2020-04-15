@@ -1,4 +1,4 @@
-package com.example.eba.model;
+package com.example.eba.modell;
 
 public enum TipoLancamento {
 	RECEITA,

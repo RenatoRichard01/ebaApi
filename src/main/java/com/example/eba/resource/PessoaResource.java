@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.eba.event.RecursoCriadoEvent;
-import com.example.eba.model.Pessoa;
+import com.example.eba.modell.Pessoa;
 import com.example.eba.repository.PessoaRepository;
 import com.example.eba.service.PessoaService;
 
