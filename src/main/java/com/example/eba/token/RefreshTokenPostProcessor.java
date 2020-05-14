@@ -39,6 +39,7 @@ public class RefreshTokenPostProcessor implements ResponseBodyAdvice<OAuth2Acces
 		String refreshToken = body.getRefreshToken().getValue();
 		adicionarRefreshTokenNoCookie(refreshToken, req, resp);
 		removerRefreshTokenDoBody(token);
+		
 		return body;
 	}
 	private void removerRefreshTokenDoBody(DefaultOAuth2AccessToken token) {
@@ -46,7 +47,7 @@ public class RefreshTokenPostProcessor implements ResponseBodyAdvice<OAuth2Acces
 	}
 
 	private void adicionarRefreshTokenNoCookie(String refreshToken, HttpServletRequest req, HttpServletResponse resp) {
-		Cookie refreshTokenCookie = new Cookie("refreshToken", refreshToken);
+		Cookie refreshTokenCookie = new Cookie("refresh_Token", refreshToken);
 		refreshTokenCookie.setHttpOnly(true); // Só quero que ele(Cookie) seja acessivel em HTTP
 		refreshTokenCookie.setSecure(false); // é um cookie seguro funcionando somente em http
 		refreshTokenCookie.setPath(req.getContextPath() + "/oauth/token");
