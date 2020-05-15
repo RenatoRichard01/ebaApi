@@ -2,6 +2,7 @@ package com.example.eba.token;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -27,15 +28,18 @@ public class RefreshTokenCookiePreProcessorFilter implements Filter{
 		HttpServletRequest req = (HttpServletRequest) request;
 		
 		if("/oauth/token".equalsIgnoreCase(req.getRequestURI())
-				&& "refresh_token".equals(req.getParameter("gran_type"))
+				&& "refresh_token".equals(req.getParameter("grant_type"))
 				&& req.getCookies() != null) {
-			for (Cookie cookie : req.getCookies()){
-				if(cookie.getName().contentEquals("refreshToken")) {
-					String refreshToken = cookie.getValue();
-					req = new MyServletRequestWrapper(req, refreshToken);
-				}
+			
+		    String refreshToken = 
+		            Stream.of(req.getCookies())
+		                .filter(cookie -> "refreshToken".equals(cookie.getName()))
+		                .findFirst()
+		                .map(cookie -> cookie.getValue())
+		                .orElse(null);
+
+		        req = new MyServletRequestWrapper(req, refreshToken);
 			}
-		}
 		chain.doFilter(req, response);
 			
 	}
