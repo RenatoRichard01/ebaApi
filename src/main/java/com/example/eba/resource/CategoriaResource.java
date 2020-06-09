@@ -35,6 +35,7 @@ public class CategoriaResource {
 //		List<Categoria> categorias = categoriaRepository.findAll();
 //		return !categorias.isEmpty() ? ResponseEntity.ok(categorias) : ResponseEntity.notFound().build();
 //	}
+	//@CrossOrigin(maxAge=10,origins= {"http://localhost:8000"} )
 	@GetMapping
 	public List<Categoria> listar(){
 		return categoriaRepository.findAll();
